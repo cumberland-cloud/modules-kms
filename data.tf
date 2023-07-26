@@ -10,6 +10,9 @@ data "aws_iam_policy_document" "merged" {
 }
 
 data "aws_iam_policy_document" "unmerged" {
+  #checkov:skip=CKV_AWS_356: "Ensure no IAM policies documents allow "*" as a statement's resource for restrictable actions"
+    # NOTE: kms:* is the default policy. Explicit denies can be merged in through the `var.key.policy` variable.
+  
   statement {
     sid                     = "EnableIAMPerms"
     effect                  = "Allow"
