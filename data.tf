@@ -13,8 +13,9 @@ data "aws_iam_policy_document" "unmerged" {
   #checkov:skip=CKV_AWS_356: "Ensure no IAM policies documents allow "*" as a statement's resource for restrictable actions"
   #checkov:skip=CKV_AWS_109: "Ensure IAM policies does not allow permissions management / resource exposure without constraints"
   #checkov:skip=CKV_AWS_111: "Ensure IAM policies does not allow write access without constraints"
-    # NOTE: kms:* is the default policy. Explicit denies can be merged in through the `var.key.policy` variable.
-  
+    # NOTE for CKV_AWS_356: kms:* is the default policy. Explicit denies can be merged in through the 
+    #     `var.key.policy` variable.
+    # TODO: fix CKV_AWS_109 and CKV_AWS_11
   statement {
     sid                     = "EnableAdminPerms"
     effect                  = "Allow"
