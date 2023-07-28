@@ -1,0 +1,21 @@
+# Terraform Docs
+
+<!-- BEGIN_TF_DOCS -->
+
+
+## Modules
+
+No modules.
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_key"></a> [key](#input\_key) | KMS Key configuration. Policy should be JSON string, and is applied in addition to the default KMS policy. | <pre>object({<br>        alias       = string<br>        admin       = optional(string, "admin")<br>        description = optional(string, null)<br>        policy      = optional(string, null)<br>    })</pre> | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_key"></a> [key](#output\_key) | Metadata of the KMS Key that has been provisioned |
+<!-- END_TF_DOCS -->  
